@@ -82,6 +82,8 @@
 (add-to-list 'load-path "~/.emacs.d/custom/emacs-elixir/")
 (require 'elixir-mode)
 
+(add-to-list 'load-path "~/.emacs.d/custom/fortunes/")
+(require 'fortune)
 
 ;;Default theme
 ;;(load-theme 'brin t)
