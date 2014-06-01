@@ -78,11 +78,7 @@
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
-(add-to-list 'load-path "~/.emacs.d/custom/emacs-elixir/")
-(require 'elixir-mode)
-
-
-;;Emacs mode
+;;Custom extensions
 (add-to-list 'load-path "~/.emacs.d/custom/emacs-elixir/")
 (require 'elixir-mode)
 
