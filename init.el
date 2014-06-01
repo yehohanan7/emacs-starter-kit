@@ -32,9 +32,11 @@
 
 (require 'package)
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")))
+                  ("elpa" . "http://tromey.com/elpa/")
+                  ("melpa" . "http://melpa.milkbox.net/packages/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
+
 (require 'starter-kit-elpa)
 
 ;; These should be loaded on startup rather than autoloaded on demand
@@ -76,4 +78,18 @@
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
+(add-to-list 'load-path "~/.emacs.d/custom/emacs-elixir/")
+(require 'elixir-mode)
+
+
+;;Emacs mode
+(add-to-list 'load-path "~/.emacs.d/custom/emacs-elixir/")
+(require 'elixir-mode)
+
+
+;;Default theme
+;;(load-theme 'brin t)
+
+
 ;;; init.el ends here
+
