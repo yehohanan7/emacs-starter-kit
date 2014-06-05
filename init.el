@@ -85,6 +85,14 @@
 (add-to-list 'load-path "~/.emacs.d/custom/fortunes/")
 (require 'fortune)
 
+(global-linum-mode t)
+
+;;ECB Customisations
+(setq ecb-tip-of-the-day nil)
+(global-set-key (kbd "<M-left>") 'ecb-goto-window-directories)
+(global-set-key (kbd "<M-right>") 'ecb-goto-window-edit1)
+(global-set-key (kbd "<M-down>") 'ecb-goto-window-sources)
+
 ;;Default theme
 ;;(load-theme 'brin t)
 
