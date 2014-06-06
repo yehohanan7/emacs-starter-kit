@@ -93,6 +93,10 @@
 (global-set-key (kbd "<M-right>") 'ecb-goto-window-edit1)
 (global-set-key (kbd "<M-down>") 'ecb-goto-window-sources)
 
+(setq ispell-program-name "/usr/local/bin/ispell") ;; ispell path
+
+
+
 ;;Default theme
 ;;(load-theme 'brin t)
 
