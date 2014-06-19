@@ -85,6 +85,9 @@
 (add-to-list 'load-path "~/.emacs.d/custom/fortunes/")
 (require 'fortune)
 
+(add-to-list 'load-path "~/.emacs.d/custom/john.el")
+(require 'select-word)
+
 (global-linum-mode t)
 
 ;;ECB Customisations
