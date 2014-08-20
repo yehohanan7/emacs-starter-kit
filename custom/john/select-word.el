@@ -7,7 +7,11 @@
     (set-mark pt)
     ))
 
-(global-set-key (kbd "C-w") 'select-word)
+;;(global-set-key (kbd "C-i") 'select-word)
+
 
 (provide 'select-word)
+
+
+
 

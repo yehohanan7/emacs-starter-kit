@@ -85,10 +85,16 @@
 (add-to-list 'load-path "~/.emacs.d/custom/fortunes/")
 (require 'fortune)
 
-(add-to-list 'load-path "~/.emacs.d/custom/john.el")
+(add-to-list 'load-path "~/.emacs.d/custom/john/")
 (require 'select-word)
+(require 'elixir-insert-test)
 
 (global-linum-mode t)
+
+(setq deft-extension "text")
+(setq deft-directory "~/Dropbox/notes")
+(setq deft-text-mode 'org-mode)
+
 
 ;;ECB Customisations
 (setq ecb-tip-of-the-day nil)
@@ -105,4 +111,3 @@
 
 
 ;;; init.el ends here
-
