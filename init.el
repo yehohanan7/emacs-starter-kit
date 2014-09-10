@@ -88,12 +88,27 @@
 (add-to-list 'load-path "~/.emacs.d/custom/john/")
 (require 'select-word)
 (require 'elixir-insert-test)
+(require 'proxy-activate)
 
 (global-linum-mode t)
 
 (setq deft-extension "text")
 (setq deft-directory "~/Dropbox/notes")
 (setq deft-text-mode 'org-mode)
+(delete-selection-mode 1)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+;;Themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 
 ;;ECB Customisations
@@ -101,13 +116,12 @@
 (global-set-key (kbd "<M-left>") 'ecb-goto-window-directories)
 (global-set-key (kbd "<M-right>") 'ecb-goto-window-edit1)
 (global-set-key (kbd "<M-down>") 'ecb-goto-window-sources)
+(require 'ecb)
+(require 'ecb-autoloads)
+
+(global-set-key (kbd "C-;") 'ecb-show-ecb-windows)
+(global-set-key (kbd "C-'") 'ecb-hide-ecb-windows)
 
 (setq ispell-program-name "/usr/local/bin/ispell") ;; ispell path
-
-
-
-;;Default theme
-;;(load-theme 'brin t)
-
 
 ;;; init.el ends here
