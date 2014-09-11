@@ -107,6 +107,22 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
+;; Javascript environment
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq js2-highlight-level 3)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
+(require 'auto-complete-config)
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
+
 ;;Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
