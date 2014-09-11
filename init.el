@@ -114,7 +114,9 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
-
+(setq yas-snippet-dirs (append yas-snippet-dirs
+                               '("~/.emacs.d/custom/john/snippets")))
+(yas-reload-all)
 
 (require 'auto-complete-config)
 ;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -125,9 +127,10 @@
 
 ;;Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'molokai)
 
 
-;;ECB Customisations
+;;Ecb Customisations
 (setq ecb-tip-of-the-day nil)
 (global-set-key (kbd "<M-left>") 'ecb-goto-window-directories)
 (global-set-key (kbd "<M-right>") 'ecb-goto-window-edit1)
