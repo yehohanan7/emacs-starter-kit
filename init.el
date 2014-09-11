@@ -114,7 +114,8 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
-
+(add-to-list 'yas/root-directory "~/.emacs.d/yasnippet-snippets")
+(yas/reload-all)
 
 (require 'auto-complete-config)
 ;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
