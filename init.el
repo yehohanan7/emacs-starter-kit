@@ -106,10 +106,13 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+(global-set-key (kbd "C-x C-f") 'helm-mini)
+(helm-mode 1)
 
 ;; Javascript environment
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;;(add-hook 'js-mode-hook 'js2-minor-mode)
+;;(add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (setq js2-highlight-level 3)
 
 (require 'yasnippet)
@@ -127,6 +130,7 @@
 
 ;;Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/base16-emacs/")
 (load-theme 'molokai)
 
 
