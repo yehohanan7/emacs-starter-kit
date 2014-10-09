@@ -97,6 +97,7 @@
 (setq deft-text-mode 'org-mode)
 (delete-selection-mode 1)
 
+;;Fast find & navigation
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -106,15 +107,40 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(global-set-key (kbd "C-x C-f") 'helm-mini)
+(global-set-key (kbd "M-p") 'helm-mini)
 (helm-mode 1)
 
 ;; Javascript environment
-;;(add-hook 'js-mode-hook 'js2-minor-mode)
-;;(add-hook 'js2-mode-hook 'ac-js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(setq js2-highlight-level 3)
+(setq js-basic-indent 2)
+(setq-default js2-basic-indent 2)
 
+(setq-default js2-basic-offset 2)
+(setq-default js2-auto-indent-p t)
+(setq-default js2-cleanup-whitespace t)
+(setq-default js2-enter-indents-newline t)
+(setq-default js2-global-externs "jQuery $")
+(setq-default js2-indent-on-enter-key t)
+(setq-default js2-mode-indent-ignore-first-tab t)
+
+(setq-default js2-global-externs '("module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
+
+(setq-default js2-show-parse-errors nil)
+
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+
+(font-lock-add-keywords 'js2-mode
+                        '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
+                           1 font-lock-warning-face t)))
+
+(autoload 'flymake-jshint "flymake-jshint"
+  "Error and linting support mode for JavaScript." t nil)
+
+(add-hook 'js-mode-hook
+          (lambda () (flymake-mode 1)))
+
+;;yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
 (setq yas-snippet-dirs (append yas-snippet-dirs
@@ -127,6 +153,9 @@
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
 
+;;exec path
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;;Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
